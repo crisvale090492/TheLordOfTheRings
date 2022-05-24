@@ -8,13 +8,22 @@ import org.springframework.web.bind.annotation.RestController
 class CharacterController {
 
     @GetMapping("getHumans")
-    fun gerHumans(): List<Doc> {
+    fun getHumans(): List<Doc> {
         var listaHumanos = mutableListOf<Doc>()
         characterList.docs.forEach {
             if (it.race == "Human")
                 listaHumanos.add(it)
         }
         return listaHumanos
+    }
+    @GetMapping("getElfs")
+    fun getElfs(): List<Doc> {
+        var listaElfos = mutableListOf<Doc>()
+        characterList.docs.forEach {
+            if (it.race == "Elf")
+                listaElfos.add(it)
+        }
+        return listaElfos
     }
 
     //todo: getelfs
